@@ -36,7 +36,7 @@
                     <ul class="list-group list-group-flush"> 
                         <%for details in @headlines%>
                             <li class="list-group-item"><%= "#{details["title"]}" %>  
-                            <a href= <%="#{details["url"]}"%>> Source </a> 
+                            <a href= <%="#{details["url"]}"%>> read more </a> 
                             </li>
                             
                         <%end%>  
@@ -51,9 +51,9 @@
                         <p> <strong>Overview:</strong> <%= @conditions %> </p>
             
                     <h5 class="future_header"> Future Forecast </h5> 
-                        <ul> 
+                        <ul class="list-group list-group-flush"> 
                             <%for days in @forecast%>
-                                <li><%="Expect a High temperature of #{days["temperatureHigh"]} and a Low of #{days["temperatureLow"]}. #{days["summary"]}" %></li>
+                                <li class="list-group-item"><%="Expect a High temperature of #{days["temperatureHigh"]} and a Low of #{days["temperatureLow"]}. #{days["summary"]}" %></li>
                         <%end%>
                         </ul>
             </div>    
