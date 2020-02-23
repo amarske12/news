@@ -1,0 +1,24 @@
+.the_header {
+    font-family: 'Patua One';
+    text-align: center;
+    font-size: 72px;
+    text-decoration-line: underline;
+}
+.the_headlines {
+    font-family: 'Fanwood Text';
+
+}  
+.news_header {
+    text-align: center;
+    font-family: 'Patua One';
+    font-size: 50px;
+}
+
+.weather_header{
+    text-align: center;
+    font-family: 'Patua One';
+    font-size: 50px;
+}
+.weather_report {
+    font-family: 'Fanwood Text';
+}

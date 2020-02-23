@@ -7,7 +7,7 @@
 
     <!-- Google Fonts -->
     <!-- Swap out "Roboto" for the font(s) you want to use -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Cormorant+Garamond|Fanwood+Text|Patua+One&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" crossorigin="anonymous">
@@ -23,9 +23,36 @@
   <body>
 
     <div class="container mt-5">
-      <h1>News</h1>
-        <p> In <%= @location %>, it is currently <%= @current_temperature %> and <%= @conditions %> </p>
-      </div>
+        <div class="row">
+            <div class="col-md-12">   
+                <h1 class="the_header">The Daily News</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 the_headlines">
+                <h3 class="news_header"> Top Headlines </h3>
+                    <ul> 
+                        <%for details in @headlines%>
+                            <li><%= "#{details["title"]}" %>  </li>
+                            <a href= <%="#{details["url"]}"%>> Source </a> 
+                        <%end%>  
+                    </ul>
+            </div>
+            <div class="col-md-6 weather_report">    
+                <h3 class="weather_header"> Weather Report </h3>  
+                    <h5 class="current_conditions"> Current Conditions </h5>
+                    <p> In <%= @location %>, it is currently <%= @current_temperature %> and <%= @conditions %> </p>
+            
+                    <h5 class="future_header"> Future Forecast </h5> 
+                        <ul> 
+                            <%for days in @forecast%>
+                                <li><%= "Expect a High temperature of #{days["temperatureHigh"]} and a Low of #{days["temperatureLow"]}. #{days["summary"]}" %></li>
+                        <%end%>
+                        </ul>
+            </div>    
+        </div> 
+       
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

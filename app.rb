@@ -9,6 +9,8 @@ before { puts "Parameters: #{params}" }
 # enter your Dark Sky API key here
 ForecastIO.api_key = "d0d3daee56a2c8ee92e80850cd1d72b3"
 
+# news API key
+
 get "/" do
   view "ask"
 end
@@ -24,13 +26,15 @@ get "/news" do
     @current_temperature = forecast["currently"]["temperature"]
     @conditions = forecast["currently"]["summary"]
     @location = forecast["timezone"]
-       
-    view "paper"
+    @forecast = forecast["daily"]["data"]   
     
+   
+    # news is now a Hash you can pretty print (pp) and parse for your output
+    url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=8a141cb88eb549ffa3ca0be56acf1321"
+    news = HTTParty.get(url).parsed_response.to_hash
+
+    @headlines = news["articles"]
+    
+    view "paper"
 end
-        #forecasted weather in a user-friendly format.
-        #<ul> 
-         #   <%for days in @forecast["daily"]["data"]%>
-          #      <li><% "Expect a high temperature of #{days["temperatureHigh"]}, low of #{days["temeratureLow"]} and #{days["summary"]} conditions"%></li>
-           # <%end%>
-        #</ul>
+        
