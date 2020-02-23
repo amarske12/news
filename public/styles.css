@@ -1,24 +1,36 @@
 .the_header {
-    font-family: 'Patua One';
+    font-family: 'Playfair Display';
     text-align: center;
     font-size: 72px;
     text-decoration-line: underline;
 }
 .the_headlines {
-    font-family: 'Fanwood Text';
-
+    font-family: 'Montserrat';
 }  
 .news_header {
     text-align: center;
-    font-family: 'Patua One';
+    font-family: 'Playfair Display';
     font-size: 50px;
 }
 
 .weather_header{
     text-align: center;
-    font-family: 'Patua One';
+    font-family: 'Playfair Display';
     font-size: 50px;
 }
+.location_header{
+    font-weight: bolder;
+    font-size: 30px;
+}
+.current_conditions {
+    font-weight: bolder;
+    font-size: 30px;
+}
+.future_header {
+    font-weight: bolder;
+    font-size: 30px;
+}
+
 .weather_report {
-    font-family: 'Fanwood Text';
+    font-family: 'Montserrat';
 }

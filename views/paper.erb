@@ -7,7 +7,7 @@
 
     <!-- Google Fonts -->
     <!-- Swap out "Roboto" for the font(s) you want to use -->
-    <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Cormorant+Garamond|Fanwood+Text|Patua+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300|Playfair+Display&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" crossorigin="anonymous">
@@ -23,30 +23,37 @@
   <body>
 
     <div class="container mt-5">
-        <div class="row">
+        <div class="row mt-4">
             <div class="col-md-12">   
                 <h1 class="the_header">The Daily News</h1>
+            <hr class="my-4"> </hr>
             </div>
+        
         </div>
-        <div class="row">
+        <div class="row mt-4">
             <div class="col-md-6 the_headlines">
-                <h3 class="news_header"> Top Headlines </h3>
-                    <ul> 
+                <h3 class="news_header"> Top Stories </h3>
+                    <ul class="list-group list-group-flush"> 
                         <%for details in @headlines%>
-                            <li><%= "#{details["title"]}" %>  </li>
+                            <li class="list-group-item"><%= "#{details["title"]}" %>  
                             <a href= <%="#{details["url"]}"%>> Source </a> 
+                            </li>
+                            
                         <%end%>  
                     </ul>
             </div>
             <div class="col-md-6 weather_report">    
-                <h3 class="weather_header"> Weather Report </h3>  
-                    <h5 class="current_conditions"> Current Conditions </h5>
-                    <p> In <%= @location %>, it is currently <%= @current_temperature %> and <%= @conditions %> </p>
+                <h3 class="weather_header"> Weather Report</h3>  
+                    <h5 class="location_header"> Location </h5> 
+                        <p> <%= @location %> </p>
+                    <h5 class="current_conditions"> Current Conditions </h5>                    
+                        <p> <strong>Teperature:</strong> <%= @current_temperature %> </p>
+                        <p> <strong>Overview:</strong> <%= @conditions %> </p>
             
                     <h5 class="future_header"> Future Forecast </h5> 
                         <ul> 
                             <%for days in @forecast%>
-                                <li><%= "Expect a High temperature of #{days["temperatureHigh"]} and a Low of #{days["temperatureLow"]}. #{days["summary"]}" %></li>
+                                <li><%="Expect a High temperature of #{days["temperatureHigh"]} and a Low of #{days["temperatureLow"]}. #{days["summary"]}" %></li>
                         <%end%>
                         </ul>
             </div>    

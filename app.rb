@@ -27,6 +27,8 @@ get "/news" do
     @conditions = forecast["currently"]["summary"]
     @location = forecast["timezone"]
     @forecast = forecast["daily"]["data"]   
+
+    
     
    
     # news is now a Hash you can pretty print (pp) and parse for your output
